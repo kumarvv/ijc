@@ -35,6 +35,11 @@ function ijc_jrun() {
 	echo 
 }
 
+function ijc_init() { 
+	mkdir -p .support 
+	ijc_reset	
+}
+
 function ijc_reset() { 
 	cat /dev/null > $JRUN_FMEM
 	cat /dev/null > $JRUN_FIMP
@@ -58,7 +63,7 @@ function ijc_help() {
 }
 
 ijc_welcome
-ijc_reset
+ijc_init
 
 multi_line=false
 while true 
