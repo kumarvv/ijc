@@ -54,11 +54,17 @@ function ijc_welcome() {
 function ijc_help() {
 	echo "ijc help"
 	echo 
-	echo "help        - ijc help"
-	echo "show        - displays current statements in cache"
-	echo "reset       - resets command cache"
-	echo "print [s]   - shortcut for java System.out.println()"
-	echo "exit | quit - exit ijc"
+	echo "Type java statements in \033[1;36m$PROMPT\033[0m prompt and press ENTER to execute. Multiple statements can be entered by enclosing with ``"
+	echo 
+	echo "\033[1;33mhelp\033[0m          - ijc help"
+	echo "\033[1;33mshow\033[0m          - displays current statements from cache"
+	echo "\033[1;33mreset\033[0m         - resets statements cache"
+	echo "\033[1;33mimport <s>\033[0m    - adds import statements to cache"
+	echo "\033[1;33mcp | classpath <s>[:<s>...]\033[0m"
+	echo "              - adds classpath to current cache, these will be added to classpath when running statements"
+	echo "\033[1;33mprint [s]\033[0m     - shortcut for java System.out.println()"
+	echo "\033[1;33m\`\`\033[0m            - start or end multi-line statements"
+	echo "\033[1;33mexit | quit\033[0m   - exit ijc"
 	echo
 }
 
@@ -69,7 +75,7 @@ multi_line=false
 while true 
 do 
 	if [[ $multi_line == true ]]; then 
-		printf "\033[1;36m\033[1;33m"
+		printf "\033[1;33m"
 	fi
 	if [[ $multi_line == false ]]; then 
 		printf "\033[1;36m$PROMPT\033[1;33m"
