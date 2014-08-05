@@ -1,7 +1,7 @@
 ijc
 ===
 
-Interactive Java Console which enables to run java statements quickly without the need of .java files, compiling using javac and running using java. 
+Interactive Java Console which enables to quily run/verify java statements without the need of .java files, compiling using javac and running using java. 
 
 
 Installation 
@@ -60,6 +60,22 @@ Hello World
 Hello World
 ijc> 
 ```
+
+Imports: 
+--------
+This tool currently imports following packages by default: 
+```java
+java.util.*; 
+java.io.*; 
+java.math.*; 
+```
+
+Additional packages or classes can be added using <code>import</code> statements: 
+```java
+ijc> import java.lang.reflect.Method;
+ijc>
+```
+Imported classes will be available current runtime context. 
 
 Commands
 --------
