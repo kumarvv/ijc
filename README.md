@@ -1,7 +1,7 @@
 ijc
 ===
 
-Interactive Java Console which enables to quily run/verify java statements without the need of .java files, compiling using javac and running using java. 
+Interactive Java Console which enables to quickly run/verify java statements without the need of .java files, compiling using javac and running using java. 
 
 
 Installation 
