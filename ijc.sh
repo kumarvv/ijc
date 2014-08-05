@@ -15,6 +15,10 @@ FULL_CLASS_CMD="\`\`\`"
 function ijc_jrun() { 
 	cmd="$@"
 
+	if [[ ${cmd:${#cmd}-1} != ';' ]]; then
+		cmd="$cmd;"
+	fi
+
 	cat $JRUN_FIMP > $JRUN_F
 	echo "$JRUN_START" >> $JRUN_F
 	cat $JRUN_FMEM >> $JRUN_F
@@ -32,7 +36,6 @@ function ijc_jrun() {
 		echo "$cmd" >> $JRUN_FMEM 
 		$JRUN_J
 	fi 
-	echo 
 }
 
 function ijc_init() { 
@@ -76,11 +79,15 @@ while true
 do 
 	if [[ $multi_line == true ]]; then 
 		printf "\033[1;33m"
+		prompt=""
 	fi
 	if [[ $multi_line == false ]]; then 
-		printf "\033[1;36m$PROMPT\033[1;33m"
+		printf "\033[1;36m"
+		prompt=$PROMPT
 	fi
-	read cmd
+
+	IFS="" read -r -e -d $'\n' -p "$prompt" cmd
+	#read cmd
 	printf "\033[0m"
 
 	if [[ $cmd == $MULTI_LINE_CMD ]]; then 
@@ -101,6 +108,10 @@ do
 		continue
 	fi
 
+	if [[ $multi_line == false ]]; then 
+		history -s $cmd
+	fi
+
 	case "$cmd" in 
 		help)
 			ijc_help
@@ -117,8 +128,8 @@ do
 		show)
 			cat $JRUN_FMEM 
 			;; 
-		print[:space:]*)
-			ijc_jrun "System.out.println($cmd)"
+		print*)
+			ijc_jrun "System.out.println(${cmd:6})"
 			;;
 		\`\`)
 			multi_line=!$multi_line
