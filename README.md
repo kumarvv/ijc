@@ -7,7 +7,7 @@ Interactive Java Console which enables to run java statements quickly without th
 Installation 
 ------------
 
-Checkout or download <code>ijc.sh</code> file and add it to your path. This is verified in Mac only at this time. 
+Checkout or download <code>ijc.sh</code> file and add it to your path. This tool is verified in Mac only at this time. 
 
 
 Usage
