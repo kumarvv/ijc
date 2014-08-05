@@ -3,11 +3,13 @@ ijc
 
 Interactive Java Console which enables to quickly run/verify java statements without the need of .java files, compiling using javac and running using java. 
 
+This tool is written in bash script with simplicity in logic and usage. 
+
 
 Installation 
 ------------
 
-Checkout or download <code>ijc.sh</code> file and add it to your path. This tool is verified in Mac only at this time. 
+Checkout <code>ijc.sh</code> file and add it to your path. This tool is verified in Mac bash shell only at this time, but should run in any bash supported shell. 
 
 
 Usage
